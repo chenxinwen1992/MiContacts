@@ -189,7 +189,6 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
      */
     private String getSortKey(String sortKeyString) {
 
-        Log.e("---------->", sortKeyString);
 
         String pinyin = characterParser.getSelling(sortKeyString);
 

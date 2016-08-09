@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="74dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:id="@+id/mLayout"
+    >
+
+    <com.thinkcool.circletextimageview.CircleTextImageView
+        android:id="@+id/mUserPhoto"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        app:citv_border_color="#acafb0"
+        app:citv_border_width="0.3dp"
+        app:citv_fill_color="#e0e2e3"
+        app:citv_text_color="#fefefe"
+        app:citv_text_size="23sp"
+        app:citv_text_text="香" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="25dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="孙尚香"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/mNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="12345678912"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/mTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="昨天中午12：48呼出4秒"
+            android:textColor="#666666"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
