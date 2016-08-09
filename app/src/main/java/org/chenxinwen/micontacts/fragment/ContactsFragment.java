@@ -84,9 +84,13 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
     @Override
     public void onResume() {
         super.onResume();
+        if (contacts.size() > 0)
+            return;
         checkPermission();
     }
+
     private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 1;
+
     private void checkPermission() {
         //版本判断
         if (Build.VERSION.SDK_INT >= 23) {
@@ -98,9 +102,9 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
                 // before actually requesting the permission and showing the default UI
 
                 ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.READ_CONTACTS},READ_CONTACTS_PERMISSIONS_REQUEST);
+                        new String[]{Manifest.permission.READ_CONTACTS}, READ_CONTACTS_PERMISSIONS_REQUEST);
 
-            }else{
+            } else {
                 initContants();
             }
         } else {
@@ -185,9 +189,9 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
      */
     private String getSortKey(String sortKeyString) {
 
-        Log.e("---------->",sortKeyString);
+        Log.e("---------->", sortKeyString);
 
-        String pinyin=characterParser.getSelling(sortKeyString);
+        String pinyin = characterParser.getSelling(sortKeyString);
 
         String key = pinyin.substring(0, 1).toUpperCase();
         if (key.matches("[A-Z]")) {
@@ -230,17 +234,16 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
             CircleTextImageView mUserPhoto = (CircleTextImageView) itemView.findViewById(R.id.mUserPhoto);
 
 
-            LinearLayout mBottomLayout=(LinearLayout)itemView.findViewById(R.id.mBottomLayout);
-            if (position<contacts.size()-1){
-                if (getItem(position).getSortKey().equals(getItem(position+1).getSortKey())){
+            LinearLayout mBottomLayout = (LinearLayout) itemView.findViewById(R.id.mBottomLayout);
+            if (position < contacts.size() - 1) {
+                if (getItem(position).getSortKey().equals(getItem(position + 1).getSortKey())) {
                     mBottomLayout.setVisibility(View.GONE);
-                }else {
+                } else {
                     mBottomLayout.setVisibility(View.VISIBLE);
                 }
-            }else {
+            } else {
                 mBottomLayout.setVisibility(View.GONE);
             }
-
 
 
             String name = getItem(position).getName();
@@ -249,12 +252,12 @@ public class ContactsFragment extends Fragment implements OnQuickSideBarTouchLis
             if (name.substring(name.length() - 1).equals("(") ||
                     name.substring(name.length() - 1).equals(")") ||
                     name.substring(name.length() - 1).equals("[") ||
-                    name.substring(name.length() - 1).equals("]")||
+                    name.substring(name.length() - 1).equals("]") ||
                     name.substring(name.length() - 1).equals("（") ||
                     name.substring(name.length() - 1).equals("）") ||
                     name.substring(name.length() - 1).equals("【") ||
                     name.substring(name.length() - 1).equals("】")) {
-                mUserPhoto.setText(name.substring(name.length() - 2,name.length() - 1));
+                mUserPhoto.setText(name.substring(name.length() - 2, name.length() - 1));
             } else {
                 mUserPhoto.setText(name.substring(name.length() - 1));
             }
