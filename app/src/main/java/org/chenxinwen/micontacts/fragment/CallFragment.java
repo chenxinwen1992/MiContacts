@@ -199,22 +199,23 @@ public class CallFragment extends Fragment {
                 holder.mTime.setText(recordEntityList.get(position).getlDate()
                         + " 呼入" + recordEntityList.get(position).getDuration() + "秒");
                 holder.mName.setTextColor(Color.parseColor("#000000"));
+                holder.mNumber.setTextColor(Color.parseColor("#666666"));
             } else if (recordEntityList.get(position).getType() == 2) {
                 //outgoing
                 holder.mTime.setText(recordEntityList.get(position).getlDate()
                         + " 呼出" + recordEntityList.get(position).getDuration() + "秒");
                 holder.mName.setTextColor(Color.parseColor("#000000"));
-
+                holder.mNumber.setTextColor(Color.parseColor("#666666"));
             } else if (recordEntityList.get(position).getType() == 3) {
                 //missed
                 holder.mTime.setText(recordEntityList.get(position).getlDate());
 
                 holder.mName.setTextColor(Color.parseColor("#e63c31"));
-
+                holder.mNumber.setTextColor(Color.parseColor("#e63c31"));
             } else if (recordEntityList.get(position).getType() == 4) {
                 //voicemails
                 holder.mTime.setText(recordEntityList.get(position).getlDate());
-
+                holder.mNumber.setTextColor(Color.parseColor("#e63c31"));
                 holder.mName.setTextColor(Color.parseColor("#e63c31"));
             }
 
